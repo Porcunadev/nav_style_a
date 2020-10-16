@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: sans-serif;
+}
+.nav{
+    background-color: rgb(20, 19, 19);
+    padding:5px 20px;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.menu li{
+    font-size: 16px;
+    padding: 15px 5px;
+}
+.menu li a{
+    display: block;
+}
+.logo a{
+    font-size:20px;
+}
+.button.secondary{
+    border-bottom: 1px #444 solid;
+}
+
+/*Mobile Menu*/
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle{
+    order: 1;
+}
+.item.button{
+    order: 2;
+}
+.item{
+    width:100%;
+    text-align: center;
+    order: 3;
+    display: none;
+}
+.item.active{
+    display: block;
+}
+
+.toggle{
+    cursor: pointer;
+}
+.bars{
+    background: #999;
+    display: inline-block;
+    position: relative;
+    height: 2px;
+    width: 18px;
+}
+.bars::before,.bars::after{
+    position: absolute;
+    background: #999;
+    height: 2px;
+    width: 18px;
+    display: inline-block;
+    content: "";
+}
+.bars::before{
+    top: 5px;
+}
+.bars::after{
+    top:-5px;
+}
+
+/*Tablet Menu*/
+@media all and (min-width:600px){
+    .menu{
+        justify-content: center;
+    }
+    .logo{
+        flex: 1;
+    }
+    .item.button{
+        width: auto;
+        order: 1;
+        display: block;
+    }
+    .toggle{
+        order: 2;
+    }
+    .button.secondary{
+        border: 0;
+    }
+    .button a{
+        padding: 7px 15px;
+        background: teal;
+        border: 1px solid teal;
+        border-radius: 50em;
+        text-decoration: none;
+    }
+    .button.secondary a{
+        background: transparent;
+    }
+    .button a:hover{
+        transition: all .25s;    
+    }
+    .button:not(.secondary) a:hover{
+        background: rgb(4, 77, 77);
+        border-color:rgb(4, 77, 77);
+    }
+    .button.secondary a:hover{
+        color: #ddd;
+    }
+}
+
+@media all and (min-width:800px){
+    .item{
+        display: block;
+        width: auto;
+    }
+    .toggle{
+        display: none;
+    }
+    .logo{
+        order: 0;
+    }
+    .item{
+        order: 1;
+    }
+    .button{
+        order: 2;
+    }
+    .menu li{
+        padding: 15px 10px;
+    }
+    .menu li.button{
+        padding-right: 0;
+    }
+}
